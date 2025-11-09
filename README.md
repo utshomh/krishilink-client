@@ -1,0 +1,82 @@
+# 🌾 KrishiLink (Client)
+
+***Frontend for KrishiLink – a Farmer’s Growth & Connection Platform***
+
+---
+
+## 🚀 Overview
+
+KrishiLink helps farmers showcase their crops, connect with buyers, and manage agro-trade efficiently.  
+This repository contains the **client-side code** (React + Tailwind + Firebase).
+
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ React (Vite)
+- 🎨 Tailwind CSS
+- 🔥 Firebase Authentication
+- 🌐 React Router
+- 💫 Framer Motion
+- 🧩 Axios (API calls)
+- ☁️ Firebase (deployment)
+
+---
+
+## ✨ Features
+
+- User authentication (Email/Google)
+- Protected routes for logged-in users
+- Crop listing with search and details
+- Interest system between farmers and buyers
+- Responsive UI with modern agro-themed design
+- Smooth animations and dynamic updates
+
+---
+
+## ⚙️ Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/mahadyhassanutsho/krishilink-client.git
+cd krishilink-client
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file in the root directory and add:
+
+```
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_SERVER_URL=https://krishilink-server.vercel.app
+```
+
+---
+
+## 📸 Live Demo
+
+[🌐 Visit Live Site](https://krishilink.netlify.app)
+
+---
+
+## 📦 Related Repositories
+
+- 🖥️ [Client Repository](https://github.com/mahadyhassanutsho/krishilink-client)
+- ⚙️ [Server Repository](https://github.com/mahadyhassanutsho/krishilink-server)
+
+---
+
+## 👨‍💻 Author
+
+Developed by [Your Name]  
+© 2025 KrishiLink
