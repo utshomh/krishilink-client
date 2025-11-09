@@ -3,10 +3,10 @@ import { createRoot } from "react-dom/client";
 
 import "./styles/main.css";
 
-import ThemePreviewer from "./components/ThemePreviewer";
+import AppRouter from "./routers/AppRouter";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemePreviewer />
+    <AppRouter />
   </StrictMode>
 );

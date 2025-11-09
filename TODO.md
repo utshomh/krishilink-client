@@ -19,14 +19,13 @@
 - ✅ Initialize React project  
 - ✅ Add Tailwind CSS and DaisyUI
 - 🚀 Configure Firebase Authentication (Login, Register, Google)  
-- 🚀 Setup Firebase rules & domain authorization  
 - 🚀 Secure Firebase config with `.env`  
-- 🚀 Setup React Router (SPA)  
+- ✅ Setup React Router (SPA)  
 - 🚀 Connect client to backend APIs (Axios / Fetch)  
 - ✅ Create GitHub repo `krishilink-client`  
 - 🕐 Make ≥15 meaningful commits  
 - ✅ Write `README.md` (name, live URL, 5+ features)  
-- 🚀 Deploy on Netlify / Firebase  
+- ✅ Deploy on Netlify
 
 ---
 
