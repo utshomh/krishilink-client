@@ -93,8 +93,8 @@
 
 - 🚀 Private Routes for protected pages  
 - 🚀 Loading states during fetching  
-- 🚀 Custom 404 Page  
-- 🚀 Framer Motion animations  
+- ✅ Custom 404 Page  
+- ✅ Framer Motion animations  
 - 🚀 Real-time updates on crop/interest changes  
 
 ---

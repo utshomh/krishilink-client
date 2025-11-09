@@ -7,7 +7,7 @@ import Footer from "../components/layouts/Footer";
 
 const AppLayout = () => {
   return (
-    <div className="min-h-screen w-full flex flex-col justify-between">
+    <div className="min-h-screen w-full flex flex-col justify-between bg-base-200 text-base-content">
       <Navbar />
       <AnimatePresence>
         <motion.div

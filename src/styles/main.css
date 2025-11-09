@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
+
 @import "tailwindcss";
 
 @plugin "daisyui";
@@ -41,4 +43,8 @@
   --border: 1px;
   --depth: 1;
   --noise: 0.015;
+}
+
+* {
+  font-family: "Rubik", sans-serif;
 }
