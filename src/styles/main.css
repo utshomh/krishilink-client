@@ -45,6 +45,18 @@
   --noise: 0.015;
 }
 
+:root {
+  --swal2-bg: var(--color-base-100);
+  --swal2-title-color: var(--color-base-content);
+  --swal2-text-color: var(--color-base-content);
+  --swal2-confirm-button-background-color: var(--color-primary);
+  --swal2-confirm-button-color: var(--color-primary-content);
+  --swal2-cancel-button-background-color: var(--color-error);
+  --swal2-cancel-button-color: var(--color-error-content);
+  --swal2-border-radius: var(--radius-box);
+  --swal2-font: "Rubik", sans-serif;
+}
+
 * {
   font-family: "Rubik", sans-serif;
 }

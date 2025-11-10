@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { makeTitle } from "../../lib/utils";
+import { makeTitle } from "../../lib/utils/seo";
 
 const PageTitle = ({ title }) => {
   useEffect(() => {

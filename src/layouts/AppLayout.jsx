@@ -1,26 +1,15 @@
 import { Outlet } from "react-router";
-// eslint-disable-next-line no-unused-vars
-import { AnimatePresence, motion } from "framer-motion";
 
-import Navbar from "../components/layouts/header/Navbar";
+import Header from "../components/layouts/header/Header";
 import Footer from "../components/layouts/Footer";
 
 const AppLayout = () => {
   return (
     <div className="min-h-screen w-full flex flex-col justify-between bg-base-200 text-base-content">
-      <Navbar />
-      <AnimatePresence>
-        <motion.div
-          key={location.pathname}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="grow"
-        >
-          <Outlet />
-        </motion.div>
-      </AnimatePresence>
+      <Header />
+      <div className="container mx-auto">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

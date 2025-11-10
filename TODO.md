@@ -18,8 +18,8 @@
 
 - ✅ Initialize React project  
 - ✅ Add Tailwind CSS and DaisyUI
-- 🚀 Configure Firebase Authentication (Login, Register, Google)  
-- 🚀 Secure Firebase config with `.env`  
+- ✅ Configure Firebase Authentication (Login, Register, Google)  
+- ✅ Secure Firebase config with `.env`  
 - ✅ Setup React Router (SPA)  
 - 🚀 Connect client to backend APIs (Axios / Fetch)  
 - ✅ Create GitHub repo `krishilink-client`  
@@ -31,14 +31,14 @@
 
 ## 🎨 UI & Layout  
 
-- 🕐 Main Layout (Header, Footer, Outlet)  
-- 🚀 Navbar  
-  - 🚀 Logo + Project name  
-  - 🚀 Public links: Home, All Crops, Login, Register  
-  - 🚀 Private links: Home, All Crops, Profile, Add Crop, My Posts, My Interests, Logout  
+- ✅ Main Layout (Header, Footer, Outlet)  
+- ✅ Navbar  
+  - ✅ Logo + Project name  
+  - ✅ Public links: Home, All Crops, Login, Register  
+  - ✅ Private links: Home, All Crops, Profile, Add Crop, My Posts, My Interests, Logout  
 - 🚀 Stylish Footer (visible on all pages except 404)  
-- 🚀 Consistent typography, spacing, and colors  
-- 🚀 Responsive layout (mobile, tablet, desktop)  
+- 🕐 Consistent typography, spacing, and colors  
+- 🕐 Responsive layout (mobile, tablet, desktop)  
 
 ---
 
@@ -71,11 +71,11 @@
 
 ## 🔐 Authentication  
 
-- 🚀 Login Page (Email, Password, Google)  
-- 🚀 Register Page (Name, Email, Photo, Password)  
-- 🚀 Password validation (upper, lower, ≥6 chars)  
-- 🚀 Toast error messages  
-- 🚀 Redirect after success  
+- ✅ Login Page (Email, Password, Google)  
+- ✅ Register Page (Name, Email, Photo, Password)  
+- ✅ Password validation (upper, lower, ≥6 chars)  
+- ✅ Toast error messages  
+- ✅ Redirect after success  
 - 🚀 Optional: Forgot Password  
 
 ---
