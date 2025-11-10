@@ -76,7 +76,7 @@
 - ✅ Password validation (upper, lower, ≥6 chars)  
 - ✅ Toast error messages  
 - ✅ Redirect after success  
-- 🚀 Optional: Forgot Password  
+- ✅ Forgot Password  
 
 ---
 
