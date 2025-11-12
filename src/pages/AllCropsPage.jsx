@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 
 import ScrollToTop from "../components/shared/ScrollToTop";
 import PageTitle from "../components/shared/PageTitle";
-import CropList from "../components/crops/CropList";
-import Loader from "../components/shared/Loader";
+import CropCard from "../components/crops/CropCard";
 
 const AllCropsPage = () => {
   const crops = useLoaderData();
@@ -47,23 +46,25 @@ const AllCropsPage = () => {
         </div>
       </div>
 
-      <Suspense fallback={<Loader />}>
-        {filteredCrops.length > 0 ? (
-          <CropList cropsPromise={(async () => filteredCrops)()} />
-        ) : (
-          <div className="flex flex-col items-center justify-center mt-20 text-center">
-            <span className="text-6xl mb-4">😢</span>
-            <h2 className="text-3xl font-semibold text-gray-700 mb-2">
-              No crops found
-            </h2>
-            <p className="text-gray-500 max-w-md">
-              We couldn’t find any crops matching your search.
-              <br />
-              Try adjusting your filters or search term.
-            </p>
-          </div>
-        )}
-      </Suspense>
+      {filteredCrops.length > 0 ? (
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredCrops.map((crop) => (
+            <CropCard key={crop._id} crop={crop} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center mt-20 text-center">
+          <span className="text-6xl mb-4">😢</span>
+          <h2 className="text-3xl font-semibold text-gray-700 mb-2">
+            No crops found
+          </h2>
+          <p className="text-gray-500 max-w-md">
+            We couldn’t find any crops matching your search.
+            <br />
+            Try adjusting your filters or search term.
+          </p>
+        </div>
+      )}
     </motion.div>
   );
 };

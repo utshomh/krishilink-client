@@ -26,3 +26,13 @@ export const getRandomCrops = async (count = 1) => {
   const randomizedCrops = getRandomItems(crops, count);
   return randomizedCrops;
 };
+
+export const updateCrop = async (id, crop) => {
+  const res = await axios.patch(`/crops/${id}`, crop);
+  return res.data;
+};
+
+export const deleteCrop = async (id) => {
+  const res = await axios.delete(`/crops/${id}`);
+  return res.data;
+};

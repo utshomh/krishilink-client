@@ -31,7 +31,7 @@ const AddCorpPage = () => {
 
       alert.success("Crop Added!", "Crop has been added successfully.");
       resetForm();
-      navigate("/crops");
+      navigate("/my-crops");
     } catch (error) {
       console.error(error);
 

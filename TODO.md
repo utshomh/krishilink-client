@@ -83,7 +83,7 @@
 ## 🌱 CRUD Operations  
 
 - ✅ Add Crop Page  
-- 🚀 My Posts Page  
+- ✅ My Posts Page  
 - 🚀 My Interests Page  
 - ✅ Profile Page  
 - ✅ Profile Update Page  

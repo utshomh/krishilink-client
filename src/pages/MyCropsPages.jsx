@@ -2,22 +2,26 @@ import { Suspense, useState, useEffect, useMemo } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
+import alert from "../lib/utils/alert";
 import { useAuth } from "../providers/AuthProvider";
-import { getCropsByEmail } from "../services/api";
+import { getCropsByEmail, updateCrop, deleteCrop } from "../services/api";
 
 import ScrollToTop from "../components/shared/ScrollToTop";
 import PageTitle from "../components/shared/PageTitle";
-import CropList from "../components/crops/CropList";
 import Loader from "../components/shared/Loader";
+import EditableCropCard from "../components/crops/EditableCropCard";
 
 const MyCropsPage = () => {
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
   const [allCrops, setAllCrops] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     getCropsByEmail(user.email).then((crops) => {
       setAllCrops(crops);
+      setLoading(false);
     });
   }, [user.email]);
 
@@ -26,10 +30,39 @@ const MyCropsPage = () => {
     return allCrops.filter((crop) => crop.name.toLowerCase().includes(term));
   }, [searchTerm, allCrops]);
 
-  const cropsPromise = useMemo(
-    () => Promise.resolve(filteredCrops),
-    [filteredCrops]
-  );
+  const handleUpdate = async (id, crop) => {
+    try {
+      await updateCrop(id, crop);
+      setLoading(true);
+      await getCropsByEmail(user.email).then((crops) => {
+        setAllCrops(crops);
+        setLoading(false);
+      });
+      alert.success("Updated", "Successfully updated crop.");
+    } catch (error) {
+      alert.error("Oops!", error.message || "Couldn't update");
+    }
+  };
+
+  const handleDelete = async (id) => {
+    await alert.confirm(
+      "Are you sure?",
+      "If you delete this data, it's gone forever. It cannot be undone.",
+      async () => {
+        try {
+          await deleteCrop(id);
+          setLoading(true);
+          await getCropsByEmail(user.email).then((crops) => {
+            setAllCrops(crops);
+            setLoading(false);
+          });
+          alert.success("Deleted", "Successfully deleted crop.");
+        } catch (error) {
+          alert.error("Oops!", error.message || "Couldn't update");
+        }
+      }
+    );
+  };
 
   return (
     <motion.div
@@ -59,23 +92,34 @@ const MyCropsPage = () => {
         </div>
       </div>
 
-      <Suspense fallback={<Loader />}>
-        {filteredCrops.length > 0 ? (
-          <CropList cropsPromise={cropsPromise} />
-        ) : (
-          <div className="flex flex-col items-center justify-center mt-20 text-center">
-            <span className="text-6xl mb-4">😢</span>
-            <h2 className="text-3xl font-semibold text-gray-700 mb-2">
-              No crops found
-            </h2>
-            <p className="text-gray-500 max-w-md">
-              We couldn’t find any crops matching your search.
-              <br />
-              Try adjusting your filters or search term.
-            </p>
-          </div>
-        )}
-      </Suspense>
+      {loading ? (
+        <div className="flex justify-center mt-20">
+          <Loader />
+        </div>
+      ) : filteredCrops.length > 0 ? (
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredCrops.map((crop) => (
+            <EditableCropCard
+              key={crop._id}
+              crop={crop}
+              onUpdate={handleUpdate}
+              onDelete={handleDelete}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center mt-20 text-center">
+          <span className="text-6xl mb-4">😢</span>
+          <h2 className="text-3xl font-semibold text-gray-700 mb-2">
+            No crops found
+          </h2>
+          <p className="text-gray-500 max-w-md">
+            We couldn’t find any crops matching your search.
+            <br />
+            Try adjusting your filters or search term.
+          </p>
+        </div>
+      )}
     </motion.div>
   );
 };

@@ -10,6 +10,7 @@ const baseConfig = {
     htmlContainer: "text-sm text-base-content/90",
     confirmButton: "btn btn-primary",
     cancelButton: "btn btn-error",
+    actions: "flex items-center justify-center gap-3",
   },
   buttonsStyling: false,
   confirmButtonText: "Okay",
