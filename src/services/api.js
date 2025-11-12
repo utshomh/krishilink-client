@@ -6,8 +6,8 @@ export const postCrop = async (crop) => {
   return res.data;
 };
 
-export const getCrops = async () => {
-  const res = await axios.get("/crops");
+export const getCrops = async (limit) => {
+  const res = await axios.get(`/crops?limit=${limit ? limit : ""}`);
   return res.data;
 };
 
