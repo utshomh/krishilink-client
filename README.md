@@ -78,5 +78,5 @@ VITE_SERVER_URL=https://krishilink-server.vercel.app
 
 ## 👨‍💻 Author
 
-Developed by [Your Name]  
+Developed by Utsho MH  
 © 2025 KrishiLink

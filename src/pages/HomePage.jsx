@@ -10,6 +10,8 @@ import Stats from "../components/home/Stats";
 import PageTitle from "../components/shared/PageTitle";
 import Hero from "../components/home/Hero";
 import LatestCrops from "../components/home/LatestCrops";
+import HowItWorks from "../components/home/HowItWorks";
+import AgroNews from "../components/home/AgroNews";
 
 const HomePage = () => {
   return (
@@ -27,6 +29,9 @@ const HomePage = () => {
       </Suspense>
 
       <LatestCrops />
+
+      <HowItWorks />
+      <AgroNews />
 
       <Stats />
       <Newsletter />

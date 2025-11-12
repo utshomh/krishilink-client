@@ -21,7 +21,7 @@
 - ✅ Configure Firebase Authentication (Login, Register, Google)  
 - ✅ Secure Firebase config with `.env`  
 - ✅ Setup React Router (SPA)  
-- 🚀 Connect client to backend APIs (Axios / Fetch)  
+- 🕐 Connect client to backend APIs (Axios / Fetch)  
 - ✅ Create GitHub repo `krishilink-client`  
 - 🕐 Make ≥15 meaningful commits  
 - ✅ Write `README.md` (name, live URL, 5+ features)  
@@ -49,8 +49,8 @@
 - ✅ Hero Slider (3+ agro slides)  
 - ✅ Latest Crops section (fetch 6 newest)  
 - ✅ “View All” → All Crops page  
-- 🚀 How It Works section  
-- 🚀 Agro News / Blog section  
+- ✅ How It Works section  
+- ✅ Agro News / Blog section  
 - ✅ Two extra sections  
 
 ### All Crops Page  
@@ -92,11 +92,11 @@
 
 ## ⚡ Features & Functionality  
 
-- 🚀 Private Routes for protected pages  
-- 🚀 Loading states during fetching  
+- 🕐 Private Routes for protected pages  
+- 🕐 Loading states during fetching  
 - ✅ Custom 404 Page  
 - ✅ Framer Motion animations  
-- 🚀 Real-time updates on crop/interest changes  
+- 🕐 Real-time updates on crop/interest changes  
 
 ---
 
