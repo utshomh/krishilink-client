@@ -12,6 +12,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import ProfilePage from "../pages/ProfilePage";
 import UpdateProfilePage from "../pages/UpdateProfilePage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
+import AllCropsPage from "../pages/AllCropsPage";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             <AddCorpPage />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "crops",
+        element: <AllCropsPage />,
       },
 
       { path: "login", element: <LoginPage /> },

@@ -55,10 +55,10 @@
 
 ### All Crops Page  
 
-- 🚀 Display crops in grid layout  
-- 🚀 Search filter by name  
-- 🚀 “No results found” UI  
-- 🚀 “View Details” → Crop Details  
+- ✅ Display crops in grid layout  
+- ✅ Search filter by name  
+- ✅ “No results found” UI  
+- ✅ “View Details” → Crop Details  
 
 ### Crop Details Page (Protected)  
 

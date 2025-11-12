@@ -40,8 +40,7 @@ const NotFoundPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.25 }}
         >
-          The page you’re looking for doesn’t exist. Maybe it got lost in the
-          game world? 🎮
+          The page you’re looking for doesn’t exist.
         </motion.p>
 
         <motion.button
