@@ -11,6 +11,12 @@ This repository contains the **client-side code** (React + Tailwind + Firebase).
 
 ---
 
+## 📸 Live Demo
+
+[🌐 Visit Live Site](https://krishilink.web.app)
+
+---
+
 ## 🛠️ Tech Stack
 
 - ⚛️ React (Vite)
@@ -50,9 +56,10 @@ npm run dev
 
 ---
 
-## 📸 Live Demo
+## 📡 Deployment
 
-[🌐 Visit Live Site](https://krishilink.web.app)
+Deployed on **Firebase**:  
+➡️ [https://krishilink.web.app](https://krishilink.web.app)
 
 ---
 

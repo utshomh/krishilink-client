@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { FiDollarSign, FiPackage } from "react-icons/fi";
+import { FiDollarSign, FiPackage, FiMapPin } from "react-icons/fi";
 
 const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -68,10 +67,10 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
             {crop.quantity} {crop.unit}s
           </p>
 
-          <p className="text-lg font-semibold text-gray-700 flex items-center gap-2">
-            <FaMapMarkerAlt className="text-primary text-xl" />
-            <span>{crop.location}</span>
-          </p>
+          <div className="flex items-center gap-2 text-base font-medium text-gray-700">
+            <FiMapPin className="text-primary text-lg" />
+            <span className="truncate">{crop.location}</span>
+          </div>
         </div>
 
         <p className="text-sm italic text-gray-600 line-clamp-3">

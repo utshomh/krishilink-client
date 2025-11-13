@@ -26,7 +26,9 @@ const CropCard = ({ crop }) => {
           <span>{crop.location}</span>
         </div>
 
-        <p className="text-sm italic text-gray-600 mt-1">{crop.description}</p>
+        <p className="text-sm italic text-gray-600 mt-1">
+          {crop.description.slice(0, 120)}...
+        </p>
 
         <Link
           to={`/crops/${crop._id}`}

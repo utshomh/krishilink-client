@@ -37,8 +37,8 @@
   - ✅ Public links: Home, All Crops, Login, Register  
   - ✅ Private links: Home, All Crops, Profile, Add Crop, My Posts, My Interests, Logout  
 - ✅ Stylish Footer (visible on all pages except 404)  
-- 🕐 Consistent typography, spacing, and colors  
-- 🕐 Responsive layout (mobile, tablet, desktop)  
+- ✅ Consistent typography, spacing, and colors  
+- ✅ Responsive layout (mobile, tablet, desktop)  
 
 ---
 
@@ -63,9 +63,9 @@
 ### Crop Details Page (Protected)  
 
 - ✅ Show full crop info  
-- 🚀 Interest Form (non-owner)  
-- 🚀 Received Interests (owner)  
-- 🚀 Update UI on status change  
+- ✅ Interest Form (non-owner)  
+- ✅ Received Interests (owner)  
+- ✅ Update UI on status change  
 
 ---
 
@@ -92,11 +92,11 @@
 
 ## ⚡ Features & Functionality  
 
-- 🕐 Private Routes for protected pages  
-- 🕐 Loading states during fetching  
+- ✅ Private Routes for protected pages  
+- ✅ Loading states during fetching  
 - ✅ Custom 404 Page  
 - ✅ Framer Motion animations  
-- 🕐 Real-time updates on crop/interest changes  
+- ✅ Real-time updates on crop/interest changes  
 
 ---
 
