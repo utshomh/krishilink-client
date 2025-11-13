@@ -4,7 +4,7 @@ import { FaMapMarkerAlt, FaAppleAlt } from "react-icons/fa";
 const CropCard = ({ crop }) => {
   return (
     <div className="bg-base-100 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-      <div className="aspect-video h-auto w-full overflow-hidden">
+      <div className="aspect-video h-auto w-full overflow-hidden bg-base-300">
         <img
           src={crop.image}
           alt={crop.name}
@@ -18,7 +18,7 @@ const CropCard = ({ crop }) => {
         <p className="text-sm text-gray-500">{crop.type.trim()}</p>
 
         <p className="text-lg font-semibold">
-          Price: {crop.pricePerUnit} BDT / {crop.unit}
+          Price: {crop.pricePerUnit} BDT / {crop.unit.toUpperCase()}
         </p>
 
         <div className="flex items-center gap-1 text-sm text-gray-500">

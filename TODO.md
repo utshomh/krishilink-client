@@ -23,7 +23,7 @@
 - ✅ Setup React Router (SPA)  
 - 🕐 Connect client to backend APIs (Axios / Fetch)  
 - ✅ Create GitHub repo `krishilink-client`  
-- 🕐 Make ≥15 meaningful commits  
+- ✅ Make ≥15 meaningful commits  
 - ✅ Write `README.md` (name, live URL, 5+ features)  
 - ✅ Deploy on Netlify
 

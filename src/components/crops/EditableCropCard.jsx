@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { FiDollarSign, FiPackage } from "react-icons/fi";
 
 const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,28 +49,45 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
         />
       </div>
 
-      <div className="p-4 flex flex-col gap-2">
-        <h2 className="text-xl font-bold text-primary">{crop.name}</h2>
-        <p className="text-sm text-gray-500">{crop.type.trim()}</p>
-        <p className="text-lg font-semibold">
-          Price: {crop.pricePerUnit} BDT / {crop.unit}
-        </p>
-
-        <div className="flex items-center gap-1 text-sm text-gray-500">
-          <FaMapMarkerAlt className="text-error text-base" />
-          <span>{crop.location}</span>
+      <div className="p-5 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col gap-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-primary">{crop.name}</h2>
+          <span className="text-sm font-medium text-gray-400 bg-gray-100 px-2 py-1 rounded-md">
+            {crop.type}
+          </span>
         </div>
 
-        <p className="text-sm italic text-gray-600 mt-1">{crop.description}</p>
+        <div className="space-y-2">
+          <p className="text-lg font-semibold text-gray-700 flex items-center gap-2">
+            <FiDollarSign className="text-primary text-xl" />
+            {crop.pricePerUnit} BDT / {crop.unit.toUpperCase()}
+          </p>
 
-        {/* Actions */}
-        <div className="flex gap-2 mt-3">
-          <button onClick={openModal} className="btn btn-primary flex-1">
+          <p className="text-lg font-semibold text-gray-700 flex items-center gap-2">
+            <FiPackage className="text-primary text-xl" />
+            {crop.quantity} {crop.unit}s
+          </p>
+
+          <p className="text-lg font-semibold text-gray-700 flex items-center gap-2">
+            <FaMapMarkerAlt className="text-primary text-xl" />
+            <span>{crop.location}</span>
+          </p>
+        </div>
+
+        <p className="text-sm italic text-gray-600 line-clamp-3">
+          {crop.description}
+        </p>
+
+        <div className="flex gap-2">
+          <button
+            onClick={openModal}
+            className="flex-1 btn btn-primary rounded-lg transition-all hover:scale-105"
+          >
             Update
           </button>
           <button
             onClick={() => onDelete(crop._id)}
-            className="btn btn-error flex-1"
+            className="flex-1 btn btn-error rounded-lg transition-all hover:scale-105"
           >
             Delete
           </button>

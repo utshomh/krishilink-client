@@ -26,8 +26,11 @@ const HowItWorks = () => {
       </h2>
 
       <div className="grid gap-10 md:grid-cols-3">
-        {steps.map((step) => (
-          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all">
+        {steps.map((step, i) => (
+          <div
+            key={i}
+            className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all"
+          >
             {step.icon}
             <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
             <p className="text-gray-600">{step.desc}</p>

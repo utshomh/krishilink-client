@@ -18,8 +18,8 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="border border-base-300 rounded-xl p-8 shadow-md max-w-2xl mx-auto text-center space-y-6">
-      <motion.h2 className="text-3xl md:text-4xl font-semibold text-base-content">
+    <section className="border border-base-300 rounded-xl px-6 md:px-8 lg:px-16 py-12 shadow-md max-w-3xl mx-auto text-center space-y-6">
+      <motion.h2 className="text-3xl md:text-4xl font-semibold text-primary">
         Stay Updated
       </motion.h2>
 

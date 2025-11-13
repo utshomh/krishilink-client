@@ -27,7 +27,7 @@ const stats = [
 
 const StatsSection = () => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center my-10">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
       {stats.map((stat) => (
         <motion.div
           key={stat.label}

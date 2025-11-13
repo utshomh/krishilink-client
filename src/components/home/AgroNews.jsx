@@ -24,22 +24,14 @@ const blogPosts = [
 const AgroNews = () => {
   return (
     <section className="px-6 md:px-8 lg:px-16 py-12 bg-accent text-accent-content rounded-xl">
-      <h2
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-3xl md:text-4xl font-bold text-center mb-10"
-      >
-        🌿 Agro News & Blog
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+        Agro News & Blog
       </h2>
 
       <div className="grid gap-10 md:grid-cols-3 text-base-content">
         {blogPosts.map((post, i) => (
           <div
             key={i}
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: i * 0.2 }}
             className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all"
           >
             <img

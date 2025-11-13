@@ -31,10 +31,12 @@ const HomePage = () => {
       <LatestCrops />
 
       <HowItWorks />
-      <AgroNews />
 
       <Stats />
+
       <Newsletter />
+
+      <AgroNews />
     </motion.div>
   );
 };
