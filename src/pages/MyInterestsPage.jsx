@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
@@ -19,23 +19,48 @@ const MyInterestsPage = () => {
   const { user } = useAuth();
   const [allInterests, setAllInterests] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sortMethod, setSortMethod] = useState("quantity");
 
-  useEffect(() => {
+  const sortInterests = (interests, method) => {
+    const sorted = [...interests];
+    switch (method) {
+      case "quantity":
+        return sorted.sort((a, b) => b.quantity - a.quantity); // highest quantity first
+      case "newest":
+        return sorted.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+      case "oldest":
+        return sorted.sort(
+          (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+        );
+      default:
+        return sorted;
+    }
+  };
+
+  const fetchInterests = useCallback(async () => {
     setLoading(true);
-    getInterestsByEmail(user.email).then((interests) => {
-      setAllInterests(interests);
+    try {
+      const interests = await getInterestsByEmail(user.email);
+      setAllInterests(sortInterests(interests, sortMethod));
+    } catch (error) {
+      alert.error("Oops!", error.message || "Couldn't fetch interests");
+    } finally {
       setLoading(false);
-    });
-  }, [user.email]);
+    }
+  }, [sortMethod, user.email]);
+
+  const handleSortChange = (e) => {
+    const method = e.target.value;
+    setSortMethod(method);
+    setAllInterests(sortInterests(allInterests, method));
+  };
 
   const handleUpdate = async (id, interest) => {
     try {
       await updateInterest(id, interest);
-      setLoading(true);
-      await getInterestsByEmail(user.email).then((interests) => {
-        setAllInterests(interests);
-        setLoading(false);
-      });
+      await fetchInterests();
       alert.success("Updated", "Successfully updated interest.");
     } catch (error) {
       alert.error("Oops!", error.message || "Couldn't update");
@@ -49,11 +74,7 @@ const MyInterestsPage = () => {
       async () => {
         try {
           await deleteInterest(id);
-          setLoading(true);
-          await getInterestsByEmail(user.email).then((interests) => {
-            setAllInterests(interests);
-            setLoading(false);
-          });
+          await fetchInterests();
           alert.success("Deleted", "Successfully deleted interest.");
         } catch (error) {
           alert.error("Oops!", error.message || "Couldn't delete");
@@ -61,6 +82,10 @@ const MyInterestsPage = () => {
       }
     );
   };
+
+  useEffect(() => {
+    fetchInterests();
+  }, [fetchInterests]);
 
   if (loading) return <Loader size="lg" />;
 
@@ -72,13 +97,22 @@ const MyInterestsPage = () => {
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <ScrollToTop />
-
       <PageTitle title="My Interests" />
 
       <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4 md:gap-0">
         <h1 className="text-3xl md:text-4xl font-extrabold text-primary">
           My Interests
         </h1>
+
+        <select
+          value={sortMethod}
+          onChange={handleSortChange}
+          className="border-2 border-base-300 rounded-md p-2 text-base-content bg-base-200"
+        >
+          <option value="quantity">Highest Quantity</option>
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+        </select>
       </div>
 
       {allInterests.length > 0 ? (

@@ -43,15 +43,12 @@ This repository contains the **client-side code** (React + Tailwind + Firebase).
 ## ⚙️ Installation
 
 ```bash
-# Clone the repo
 git clone https://github.com/mahadyhassanutsho/krishilink-client.git
 cd krishilink-client
 
-# Install dependencies
-npm install
+pnpm install
 
-# Start development server
-npm run dev
+pnpm run dev
 ```
 
 ---
