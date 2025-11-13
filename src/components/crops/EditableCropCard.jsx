@@ -13,6 +13,7 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
   } = useForm({
     defaultValues: {
       name: crop.name,
+      image: crop.image,
       type: crop.type,
       quantity: crop.quantity,
       pricePerUnit: crop.pricePerUnit,
@@ -30,6 +31,7 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
   const openModal = () => {
     reset({
       name: crop.name,
+      image: crop.image,
       type: crop.type,
       quantity: crop.quantity,
       pricePerUnit: crop.pricePerUnit,
@@ -107,6 +109,12 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
               <input
                 {...register("name", { required: "Crop name is required" })}
                 placeholder="Crop Name"
+                className="input input-bordered w-full"
+              />
+
+              <input
+                {...register("image", { required: "Crop image is required" })}
+                placeholder="Crop Image Link"
                 className="input input-bordered w-full"
               />
 
