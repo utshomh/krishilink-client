@@ -8,8 +8,10 @@ import { getCropById } from "../services/api";
 
 import ScrollToTop from "../components/shared/ScrollToTop";
 import PageTitle from "../components/shared/PageTitle";
+import Loader from "../components/shared/Loader";
 import AddInterest from "../components/interests/AddInterest";
 import ShowInterests from "../components/interests/ShowInterests";
+import CropNotFound from "../components/crops/CropNotFound";
 
 const CropDetailsPage = () => {
   const { id } = useParams();
@@ -35,17 +37,9 @@ const CropDetailsPage = () => {
     fetchCrop();
   }, [id, fetchCrop]);
 
-  if (loading)
-    return (
-      <p className="text-center text-gray-500 text-xl mt-10">Loading crop...</p>
-    );
+  if (loading) return <Loader size="lg" />;
 
-  if (!crop)
-    return (
-      <p className="text-center text-gray-500 text-xl mt-10">
-        Crop details not found
-      </p>
-    );
+  if (!crop) return <CropNotFound />;
 
   return (
     <motion.div

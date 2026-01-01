@@ -129,12 +129,12 @@ const MyInterestsPage = () => {
       ) : (
         <div className="flex flex-col items-center justify-center mt-20 text-center">
           <h2 className="text-3xl font-semibold text-gray-700 mb-2">
-            No interests found
+            No Interests Found
           </h2>
-          <p className="text-gray-500 max-w-md">
-            We couldn’t find any interests matching your search.
+          <p className="text-gray-500 max-w-md text-center">
+            You haven’t added any interests yet.
             <br />
-            Try adjusting your filters or search term.
+            Come back later to see new updates.
           </p>
         </div>
       )}

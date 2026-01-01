@@ -68,7 +68,7 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
 
           <p className="text-lg font-semibold text-gray-700 flex items-center gap-2">
             <FiPackage className="text-primary text-xl" />
-            {crop.quantity} {crop.unit}s
+            {crop.quantity} {crop.unit.toUpperCase()}
           </p>
 
           <div className="flex items-center gap-2 text-base font-medium text-gray-700">
