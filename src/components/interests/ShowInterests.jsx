@@ -52,7 +52,7 @@ const ShowInterests = ({ crop, refreshCrop }) => {
 
   if (interests.length === 0)
     return (
-      <p className="text-center text-gray-500 text-xl mt-10">
+      <p className="text-center text-base-content/80 text-xl mt-10">
         No interests found
       </p>
     );

@@ -88,7 +88,7 @@ const MyCropsPage = () => {
             placeholder="Search crops by names"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="input input-bordered w-full rounded-lg border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 placeholder-gray-400 shadow-sm transition-all duration-200"
+            className="input input-bordered w-full rounded-lg border-base-300 focus:border-primary focus:ring focus:ring-primary/20 placeholder-base-content/80 shadow-sm transition-all duration-200"
           />
         </div>
       </div>
@@ -106,17 +106,17 @@ const MyCropsPage = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="text-3xl font-semibold text-gray-700 mb-2">
+          <h2 className="text-3xl font-semibold text-base-content/80 mb-2">
             No crops found
           </h2>
           {searchTerm ? (
-            <p className="text-gray-500 max-w-md text-center">
+            <p className="text-base-content/80 max-w-md text-center">
               No crops found for “{searchTerm}”.
               <br />
               Try adjusting your filters or refining your keywords.
             </p>
           ) : (
-            <p className="text-gray-500 max-w-md text-center">
+            <p className="text-base-content/80 max-w-md text-center">
               You haven’t added any crops yet.
               <br />
               Come back later to see new updates.

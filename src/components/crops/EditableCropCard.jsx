@@ -55,29 +55,29 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
       <div className="p-5 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold text-primary">{crop.name}</h2>
-          <span className="text-sm font-medium text-gray-400 bg-gray-100 px-2 py-1 rounded-md">
+          <span className="text-sm font-medium bg-base-300 px-2 py-1 rounded-md">
             {crop.type}
           </span>
         </div>
 
         <div className="space-y-2">
-          <p className="text-lg font-semibold text-gray-700 flex items-center gap-2">
+          <p className="text-lg font-semibold flex items-center gap-2">
             <FiDollarSign className="text-primary text-xl" />
             {crop.pricePerUnit} BDT / {crop.unit.toUpperCase()}
           </p>
 
-          <p className="text-lg font-semibold text-gray-700 flex items-center gap-2">
+          <p className="text-lg font-semibold flex items-center gap-2">
             <FiPackage className="text-primary text-xl" />
             {crop.quantity} {crop.unit.toUpperCase()}
           </p>
 
-          <div className="flex items-center gap-2 text-base font-medium text-gray-700">
+          <div className="flex items-center gap-2 text-base font-medium">
             <FiMapPin className="text-primary text-lg" />
             <span className="truncate">{crop.location}</span>
           </div>
         </div>
 
-        <p className="text-sm italic text-gray-600 line-clamp-2">
+        <p className="text-sm italic text-base-content/80 line-clamp-2">
           {crop.description}
         </p>
 

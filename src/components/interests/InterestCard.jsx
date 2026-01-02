@@ -42,7 +42,7 @@ const InterestCard = ({
 
       <div className="space-y-1">
         <h2 className="font-bold text-2xl text-primary">Interest Details:</h2>
-        <p className="text-gray-800">
+        <p>
           <strong>Quantity:</strong> {interest.quantity} {crop.unit}
         </p>
         <p className="flex items-center gap-2 text-base-content/75 italic my-2">

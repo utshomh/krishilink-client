@@ -1,12 +1,14 @@
 import { NavLink } from "react-router";
 import { HiMiniBars3, HiMiniXMark } from "react-icons/hi2";
 
-import alert from "../../../lib/utils/alert";
-import { logoutUser } from "../../../services/firebase";
+// import alert from "../../../lib/utils/alert";
+// import { logoutUser } from "../../../services/firebase";
 import { useAuth } from "../../../providers/AuthProvider";
+import useTheme from "../../../hooks/useTheme";
 import useToggle from "../../../hooks/useToggle";
 
 import Loader from "../../shared/Loader";
+import { BiMoon, BiSun } from "react-icons/bi";
 
 const publicRoutes = [
   { name: "Home", path: "/" },
@@ -18,30 +20,32 @@ const publicRoutes = [
 const privateRoutes = [
   { name: "Home", path: "/" },
   { name: "All Crops", path: "/crops" },
-  { name: "Profile", path: "/profile" },
-  { name: "Add Crops", path: "/add-crop" },
-  { name: "My Crops", path: "/my-crops" },
-  { name: "My Interests", path: "/my-interests" },
+  { name: "Dashboard", path: "/dashboard" },
+  // { name: "Profile", path: "/profile" },
+  // { name: "Add Crops", path: "/add-crop" },
+  // { name: "My Crops", path: "/my-crops" },
+  // { name: "My Interests", path: "/my-interests" },
 ];
 
 const Navbar = () => {
-  const { authIsReady, user, clearUser } = useAuth();
+  const { theme, toggleTheme } = useTheme();
+  const { authIsReady, user } = useAuth();
   const { value: menuOpen, toggle: toggleMenuOpen } = useToggle(false);
   const routes = user ? privateRoutes : publicRoutes;
 
-  const handleAuthResult = (success, message) => {
-    if (success) {
-      clearUser();
-      alert.info("Logged Out!", `You are successfully logged out.`);
-    } else {
-      alert.error("Oops!", message);
-    }
-  };
+  // const handleAuthResult = (success, message) => {
+  //   if (success) {
+  //     clearUser();
+  //     alert.info("Logged Out!", `You are successfully logged out.`);
+  //   } else {
+  //     alert.error("Oops!", message);
+  //   }
+  // };
 
-  const handleLogout = async () => {
-    const { success, message } = await logoutUser();
-    handleAuthResult(success, message);
-  };
+  // const handleLogout = async () => {
+  //   const { success, message } = await logoutUser();
+  //   handleAuthResult(success, message);
+  // };
 
   if (!authIsReady) return <Loader />;
 
@@ -74,16 +78,21 @@ const Navbar = () => {
           </li>
         ))}
 
-        {user && (
-          <li>
-            <button
-              onClick={handleLogout}
-              className="btn btn-warning btn-sm mt-2 md:mt-0"
-            >
-              Logout
-            </button>
-          </li>
-        )}
+        <li className="tooltip">
+          <div className="tooltip-content">
+            <p>Toggle Theme</p>
+          </div>
+          <button
+            onClick={toggleTheme}
+            className="btn btn-outline btn-square btn-sm mt-2 md:mt-0"
+          >
+            {theme === "krishilink-light" ? (
+              <BiMoon className="text-lg" />
+            ) : (
+              <BiSun className="text-lg" />
+            )}
+          </button>
+        </li>
       </ul>
     </nav>
   );

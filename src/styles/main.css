@@ -3,8 +3,9 @@
 @import "tailwindcss";
 
 @plugin "daisyui";
+
 @plugin "daisyui/theme" {
-  name: "krishilink";
+  name: "krishilink-light";
   default: true;
   prefersdark: true;
   color-scheme: "light";
@@ -45,6 +46,55 @@
   --noise: 0.015;
 }
 
+@plugin "daisyui/theme" {
+  name: "krishilink-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+
+  /* --- Base: Clean, Deep Slate --- */
+  --color-base-100: oklch(18% 0.02 240);
+  --color-base-200: oklch(23% 0.03 240);
+  --color-base-300: oklch(28% 0.04 240);
+  --color-base-content: oklch(94% 0.02 240);
+
+  /* --- Brand Colors (Vibrant & Visible) --- */
+  --color-primary: oklch(65% 0.18 140);
+  --color-primary-content: oklch(15% 0.05 140); /* Dark text on green button */
+
+  --color-secondary: oklch(82% 0.18 85);
+  --color-secondary-content: oklch(15% 0.05 85);
+
+  --color-accent: oklch(76% 0.2 130);
+  --color-accent-content: oklch(15% 0.05 130);
+
+  /* --- Neutral & State --- */
+  --color-neutral: oklch(25% 0.02 240);
+  --color-neutral-content: oklch(90% 0.02 240);
+
+  --color-info: oklch(74% 0.12 230);
+  --color-info-content: oklch(15% 0.05 230);
+
+  --color-success: oklch(68% 0.16 145);
+  --color-success-content: oklch(15% 0.05 145);
+
+  --color-warning: oklch(80% 0.16 85);
+  --color-warning-content: oklch(15% 0.05 85);
+
+  --color-error: oklch(70% 0.18 30);
+  --color-error-content: oklch(15% 0.05 30);
+
+  /* --- Config --- */
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
 :root {
   --swal2-bg: var(--color-base-100);
   --swal2-title-color: var(--color-base-content);
@@ -55,6 +105,25 @@
   --swal2-cancel-button-color: var(--color-error-content);
   --swal2-border-radius: var(--radius-box);
   --swal2-font: "Rubik", sans-serif;
+
+  /* FORCE SweetAlert to pick up the dark theme variables */
+  [data-theme="krishilink-dark"] {
+    --swal2-bg: var(--color-base-100);
+    --swal2-title-color: var(--color-base-content);
+    --swal2-text-color: var(--color-base-content);
+
+    --swal2-confirm-button-background-color: var(--color-primary);
+    --swal2-confirm-button-color: var(--color-primary-content);
+
+    --swal2-cancel-button-background-color: var(--color-error);
+    --swal2-cancel-button-color: var(--color-error-content);
+  }
+
+  /* Optional: Fix for the backdrop if it looks too bright */
+  [data-theme="krishilink-dark"] .swal2-container.swal2-backdrop-show,
+  [data-theme="krishilink-dark"] .swal2-container.swal2-noanimation {
+    background: rgba(0, 0, 0, 0.6) !important;
+  }
 }
 
 * {

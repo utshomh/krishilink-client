@@ -1,10 +1,6 @@
-import { Suspense } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
-import { getRandomCrops } from "../services/api";
-
-import Loader from "../components/shared/Loader";
 import Newsletter from "../components/home/Newsletter";
 import Stats from "../components/home/Stats";
 import PageTitle from "../components/shared/PageTitle";
@@ -24,9 +20,7 @@ const HomePage = () => {
     >
       <PageTitle title="Home" />
 
-      <Suspense fallback={<Loader size="lg" />}>
-        <Hero cropsPromise={getRandomCrops(4)} />
-      </Suspense>
+      <Hero />
 
       <LatestCrops />
 

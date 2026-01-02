@@ -7,7 +7,7 @@ const CropList = ({ cropsPromise }) => {
 
   return (
     <section>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 grid-cols-1 min-[34rem]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {crops.map((crop) => (
           <CropCard key={crop._id} crop={crop} />
         ))}

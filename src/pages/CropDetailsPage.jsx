@@ -56,11 +56,11 @@ const CropDetailsPage = () => {
         <img
           src={crop.image}
           alt={crop.name}
-          className="w-full md:w-1/2 h-auto object-cover rounded-xl"
+          className="w-full md:w-1/2 h-auto aspect-video md:aspect-square object-cover rounded-xl"
         />
         <div className="flex-1 space-y-4">
           <h2 className="text-3xl font-bold text-primary">{crop.name}</h2>
-          <p className="text-gray-600">{crop.description}</p>
+          <p className="text-base-content/80">{crop.description}</p>
           <div className="flex flex-col gap-4 text-base-content/75">
             <p>
               <strong>Type:</strong> {crop.type}
@@ -80,7 +80,7 @@ const CropDetailsPage = () => {
               <strong>Owner:</strong> {crop.ownerName} ({crop.ownerEmail})
             </p>
           </div>
-          <p className="text-gray-400 text-sm">
+          <p className="text-base-content/60 text-sm">
             Created at: {new Date(crop.createdAt).toLocaleString()}
           </p>
         </div>

@@ -32,7 +32,7 @@ const AgroNews = () => {
         {blogPosts.map((post, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all"
+            className="bg-base-100 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all"
           >
             <img
               src={post.img}

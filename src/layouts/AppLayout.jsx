@@ -12,7 +12,7 @@ const AppLayout = () => {
   return (
     <div className="min-h-screen w-full flex flex-col justify-between bg-base-200 text-base-content">
       <Header />
-      <div className="container mx-auto my-12 flex-1">
+      <div className="container mx-auto my-12 px-2 flex-1">
         <Outlet />
       </div>
       <Footer />
