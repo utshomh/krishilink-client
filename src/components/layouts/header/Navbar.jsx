@@ -11,6 +11,7 @@ import useTheme from "../../../hooks/useTheme";
 import useToggle from "../../../hooks/useToggle";
 
 import Loader from "../../shared/Loader";
+import UserDropdown from "../../shared/UserDropdown";
 
 const publicRoutes = [
   { name: "Home", path: "/" },
@@ -116,28 +117,7 @@ const Navbar = () => {
         {/* User Actions */}
         <div>
           {user ? (
-            <div className="dropdown dropdown-end">
-              <button
-                tabIndex="1"
-                role="button"
-                className="btn btn-ghost btn-circle avatar border-3 border-transparent hover:border-accent transition-colors duration-500 ease-in-out"
-              >
-                <div className="w-10 rounded-full">
-                  <img src={user.photoURL} alt="profile" />
-                </div>
-              </button>
-              <ul
-                tabIndex="1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-2 shadow-md gap-2"
-              >
-                <Link to="/dashboard" className="btn btn-sm btn-accent">
-                  Dashboard
-                </Link>
-                <button className="btn btn-error btn-sm" onClick={handleLogout}>
-                  Logout
-                </button>
-              </ul>
-            </div>
+            <UserDropdown user={user} onLogout={handleLogout} />
           ) : (
             <div className="hidden md:flex items-center gap-2">
               <Link

@@ -44,7 +44,7 @@ const ProfilePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Link to="/update-profile">Update Profile</Link>
+          <Link to="/dashboard/update-profile">Update Profile</Link>
         </motion.button>
       </motion.div>
     </div>

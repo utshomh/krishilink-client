@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
 import { getCrops } from "../services/api";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 const AppLayout = lazy(() => import("../layouts/AppLayout"));
 const ProtectedRoute = lazy(() =>
@@ -37,63 +38,52 @@ const router = createBrowserRouter([
       { path: "", index: true, element: <HomePage /> },
 
       {
-        path: "add-crop",
-        element: (
-          <ProtectedRoute>
-            <AddCorpPage />
-          </ProtectedRoute>
-        ),
-      },
-      {
         path: "crops",
         loader: () => getCrops(),
         element: <AllCropsPage />,
       },
       {
         path: "crops/:id",
-        element: (
-          <ProtectedRoute>
-            <CropDetailsPage />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "my-crops",
-        element: (
-          <ProtectedRoute>
-            <MyCropsPage />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "my-interests",
-        element: (
-          <ProtectedRoute>
-            <MyInterestsPage />
-          </ProtectedRoute>
-        ),
+        element: <CropDetailsPage />,
       },
 
       { path: "login", element: <LoginPage /> },
       { path: "register", element: <RegisterPage /> },
+
+      { path: "reset-password", element: <ResetPasswordPage /> },
+      { path: "/terms-and-conditions", element: <TermsAndConditionsPage /> },
+    ],
+  },
+
+  {
+    path: "dashboard/",
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: "add-crop",
+        element: <AddCorpPage />,
+      },
+      {
+        path: "my-crops",
+        element: <MyCropsPage />,
+      },
+      {
+        path: "my-interests",
+        element: <MyInterestsPage />,
+      },
+
       {
         path: "profile",
-        element: (
-          <ProtectedRoute>
-            <ProfilePage />
-          </ProtectedRoute>
-        ),
+        element: <ProfilePage />,
       },
       {
         path: "update-profile",
-        element: (
-          <ProtectedRoute>
-            <UpdateProfilePage />
-          </ProtectedRoute>
-        ),
+        element: <UpdateProfilePage />,
       },
-      { path: "reset-password", element: <ResetPasswordPage /> },
-      { path: "/terms-and-conditions", element: <TermsAndConditionsPage /> },
     ],
   },
 ]);

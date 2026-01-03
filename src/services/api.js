@@ -61,3 +61,8 @@ export const deleteInterest = async (id) => {
   const res = await axios.delete(`/interests/${id}`);
   return res.data;
 };
+
+export const getStats = async () => {
+  const res = await axios.get("/stats/overview");
+  return res.data;
+};

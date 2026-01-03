@@ -21,7 +21,7 @@ const UpdateProfilePage = () => {
   } = useForm();
   const navigate = useNavigate();
 
-  const goToProfile = () => navigate("/profile");
+  const goToProfile = () => navigate("/dashboard/profile");
 
   const handleUpdateUser = async (formData) => {
     const { name, photo } = formData;
