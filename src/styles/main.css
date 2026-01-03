@@ -95,6 +95,35 @@
   --noise: 0;
 }
 
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+
+  /* Pause marquee on hover for better UX */
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* Glass effect for modern UI elements */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
 :root {
   --swal2-bg: var(--color-base-100);
   --swal2-title-color: var(--color-base-content);

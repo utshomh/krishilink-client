@@ -47,12 +47,12 @@ const Footer = () => {
         <div className="flex items-center gap-2">
           <FaGithub />
           <a
-            href="https://github.com/mahadyhassanutsho"
+            href="https://github.com/utshomh/krishilink-client"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm hover:text-secondary transition-colors duration-300 ease-in-out"
           >
-            Contribute / About Me
+            Contribute
           </a>
         </div>
       </div>

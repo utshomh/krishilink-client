@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const HeroSlide = ({ slide }) => {
   return (
     <div className="relative aspect-square md:aspect-2/1 w-full rounded-xl overflow-hidden group">
@@ -27,9 +29,12 @@ const HeroSlide = ({ slide }) => {
           </p>
         </div>
 
-        <button className="btn btn-xl btn-wide btn-primary shadow-lg">
+        <Link
+          to={slide.ctaAction}
+          className="btn btn-xl btn-wide btn-primary shadow-lg"
+        >
           {slide.ctaText}
-        </button>
+        </Link>
       </div>
     </div>
   );

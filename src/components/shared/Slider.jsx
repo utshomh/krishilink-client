@@ -2,37 +2,51 @@ import SlickSlider from "react-slick";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
 const PrevArrow = ({ onClick }) => (
-  <div
-    className="absolute left-0 top-1/2 z-20 cursor-pointer text-white hover:text-accent transition-colors duration-200 ease-in-out"
+  <button
+    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 cursor-pointer text-white/70 hover:text-white bg-black/20 hover:bg-black/40 p-2 rounded-full transition-all"
     onClick={onClick}
+    aria-label="Previous Slide"
   >
-    <HiChevronLeft className="font-bold text-xl md:text-2xl lg:text-4xl" />
-  </div>
+    <HiChevronLeft className="text-2xl lg:text-4xl" />
+  </button>
 );
 
 const NextArrow = ({ onClick }) => (
-  <div
-    className="absolute right-0 top-1/2 z-20 cursor-pointer text-white hover:text-accent transition-colors duration-200 ease-in-out"
+  <button
+    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 cursor-pointer text-white/70 hover:text-white bg-black/20 hover:bg-black/40 p-2 rounded-full transition-all"
     onClick={onClick}
+    aria-label="Next Slide"
   >
-    <HiChevronRight className="font-bold text-xl md:text-2xl lg:text-4xl" />
-  </div>
+    <HiChevronRight className="text-2xl lg:text-4xl" />
+  </button>
 );
 
 const Slider = ({ children }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    pauseOnHover: true,
     arrows: true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
+    // Custom Dot Styling
+    appendDots: (dots) => (
+      <div className="absolute bottom-6 w-full">
+        <ul className="flex justify-center gap-2 m-0"> {dots} </ul>
+      </div>
+    ),
+    customPaging: () => (
+      <div className="w-3 h-3 bg-white/40 rounded-full hover:bg-white transition-all active-dot:bg-primary"></div>
+    ),
   };
 
   return (
-    <div className="slider-container overflow-hidden">
+    <div className="slider-container relative group overflow-hidden rounded-3xl">
       <SlickSlider {...settings}>{children}</SlickSlider>
     </div>
   );
