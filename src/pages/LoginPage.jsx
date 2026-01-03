@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaUserShield } from "react-icons/fa";
 
 import alert from "../lib/utils/alert";
 import {
@@ -23,14 +23,16 @@ const LoginPage = () => {
   const {
     register: registerFormField,
     reset: resetForm,
-    // watch,
+    watch,
     handleSubmit,
+    setValue, // Used to programmatically fill the form
     formState: { errors: formErrors, isSubmitting: formIsSubmitting },
   } = useForm();
+
   const { state: redirectTo } = useLocation();
   const navigate = useNavigate();
 
-  // const email = watch("email");
+  const email = watch("email");
 
   const handleAuthResult = (success, user, message) => {
     if (success) {
@@ -38,7 +40,7 @@ const LoginPage = () => {
       resetForm();
       alert.success(
         "Logged In!",
-        `You are successfully logged in as: ${user.displayName}.`
+        `You are successfully logged in as: ${user.displayName || "Demo User"}.`
       );
       navigate(redirectTo || "/");
     } else {
@@ -48,20 +50,28 @@ const LoginPage = () => {
 
   const handleLogin = async (formData) => {
     const { email, password } = formData;
-
     const { success, user, message } = await loginUser(email, password);
-
     handleAuthResult(success, user, message);
   };
 
   const handleLoginWithGoogle = async () => {
     const { success, user, message } = await loginWithProvider(GoogleProvider);
+    handleAuthResult(success, user, message);
+  };
 
+  const handleDemoLogin = async () => {
+    const demoEmail = "demouser@gmail.com";
+    const demoPassword = "Dem0u$er";
+
+    setValue("email", demoEmail);
+    setValue("password", demoPassword);
+
+    const { success, user, message } = await loginUser(demoEmail, demoPassword);
     handleAuthResult(success, user, message);
   };
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center">
+    <div className="min-h-[80vh] flex flex-col items-center justify-center p-4">
       <ScrollToTop />
       <PageTitle title="Login" />
 
@@ -91,7 +101,9 @@ const LoginPage = () => {
               placeholder="Enter your email"
             />
             {formErrors.email && (
-              <p className="label text-error">{formErrors.email.message}</p>
+              <p className="label text-xs text-error">
+                {formErrors.email.message}
+              </p>
             )}
 
             <label className="label font-medium mt-2">Password</label>
@@ -103,78 +115,85 @@ const LoginPage = () => {
                     value: 6,
                     message: "Password must be at least 6 characters",
                   },
-                  validate: {
-                    hasUppercase: (value) =>
-                      /[A-Z]/.test(value) || "Must include an uppercase letter",
-                    hasLowercase: (value) =>
-                      /[a-z]/.test(value) || "Must include a lowercase letter",
-                    hasNumber: (value) =>
-                      /[0-9]/.test(value) || "Must include a number",
-                    hasSpecial: (value) =>
-                      /[!@#$%^&*]/.test(value) ||
-                      "Must include a special character",
-                  },
                 })}
                 type={showPassword ? "text" : "password"}
                 className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Enter your password"
               />
-              {formErrors.password && (
-                <p className="label text-error">
-                  {formErrors.password.message}
-                </p>
-              )}
-
               <button
                 type="button"
                 onClick={toggleShowPassword}
-                className="absolute top-0 right-0 translate-y-1/2 px-2 cursor-pointer"
+                className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-base-content/50 hover:text-primary"
               >
                 {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
               </button>
             </div>
+            {formErrors.password && (
+              <p className="label text-xs text-error">
+                {formErrors.password.message}
+              </p>
+            )}
           </div>
 
-          {/* <div className="mt-2">
+          <div className="mt-2 text-right">
             <Link
               to="/reset-password"
               state={email}
-              className="link link-hover text-sm"
+              className="link link-hover text-xs opacity-70"
             >
               Forgot password?
-            </Link>
-          </div> */}
-
-          <div className="my-4 text-center space-x-1 text-sm">
-            <span>Don't have an account? </span>
-            <Link
-              to="/register"
-              className="underline text-accent font-semibold"
-            >
-              Register
             </Link>
           </div>
 
           <motion.button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary w-full mt-4"
             disabled={formIsSubmitting}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            {formIsSubmitting ? "Logging in..." : "Login"}
+            {formIsSubmitting ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              "Login"
+            )}
           </motion.button>
 
-          <div className="divider">OR</div>
+          <div className="divider text-xs opacity-50">OR</div>
 
-          <button
-            type="button"
-            onClick={handleLoginWithGoogle}
-            className="btn btn-outline btn-primary gap-2"
-          >
-            <FcGoogle size={20} />
-            <span className="text-sm">Continue with Google</span>
-          </button>
+          <div className="flex flex-col gap-3">
+            {/* Demo Login Button */}
+            <button
+              type="button"
+              onClick={handleDemoLogin}
+              disabled={formIsSubmitting}
+              className="btn btn-outline btn-secondary gap-2"
+            >
+              <FaUserShield size={18} />
+              Quick Demo Login
+            </button>
+
+            {/* Google Login Button */}
+            <button
+              type="button"
+              onClick={handleLoginWithGoogle}
+              disabled={formIsSubmitting}
+              className="btn btn-outline border-base-300 gap-2 hover:bg-base-300 hover:text-base-content"
+            >
+              <FcGoogle size={20} />
+              <span className="text-sm">Continue with Google</span>
+            </button>
+          </div>
+
+          <div className="mt-6 text-center text-sm">
+            <span className="opacity-70">Don't have an account? </span>
+            <Link
+              to="/register"
+              className="underline text-primary font-semibold hover:text-primary-focus"
+            >
+              Register
+            </Link>
+          </div>
         </fieldset>
       </motion.form>
     </div>
