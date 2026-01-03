@@ -1,17 +1,16 @@
 import { Link, NavLink } from "react-router";
 import { HiMiniBars3, HiMiniXMark } from "react-icons/hi2";
-import { BiMoon, BiSun } from "react-icons/bi";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 import alert from "../../../lib/utils/alert";
 import { logoutUser } from "../../../services/firebase";
 import { useAuth } from "../../../providers/AuthProvider";
-import useTheme from "../../../hooks/useTheme";
 import useToggle from "../../../hooks/useToggle";
 
 import Loader from "../../shared/Loader";
 import UserDropdown from "../../shared/UserDropdown";
+import ThemeToggler from "../../shared/ThemeToggler";
 
 const publicRoutes = [
   { name: "Home", path: "/" },
@@ -29,7 +28,6 @@ const privateRoutes = [
 ];
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
   const { authIsReady, user, clearUser } = useAuth();
   const { value: menuOpen, toggle: toggleMenuOpen } = useToggle(false);
   const routes = user ? privateRoutes : publicRoutes;
@@ -101,18 +99,7 @@ const Navbar = () => {
 
       {/* Buttons and Theme Toggle Stay on the Right */}
       <div className="w-fit ml-auto flex items-center gap-2">
-        <div className="tooltip tooltip-bottom" data-tip="Toggle Theme">
-          <button
-            onClick={toggleTheme}
-            className="btn btn-outline btn-square btn-sm"
-          >
-            {theme === "krishilink-light" ? (
-              <BiMoon className="text-lg" />
-            ) : (
-              <BiSun className="text-lg" />
-            )}
-          </button>
-        </div>
+        <ThemeToggler />
 
         {/* User Actions */}
         <div>

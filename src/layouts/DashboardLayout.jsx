@@ -11,6 +11,7 @@ import { getStats } from "../services/api";
 import Logo from "../components/shared/Logo";
 import Loader from "../components/shared/Loader";
 import UserDropdown from "../components/shared/UserDropdown";
+import ThemeToggler from "../components/shared/ThemeToggler";
 import Overview from "../components/dashboard/Overview";
 
 const routes = [
@@ -72,7 +73,10 @@ const DashboardLayout = () => {
             </label>
             <Logo />
           </div>
-          <UserDropdown user={user} onLogout={handleLogout} />
+          <div className="flex items-center gap-2">
+            <ThemeToggler />
+            <UserDropdown user={user} onLogout={handleLogout} />
+          </div>
         </nav>
 
         <div className="p-4 bg-base-200 rounded-t-2xl min-h-screen">
