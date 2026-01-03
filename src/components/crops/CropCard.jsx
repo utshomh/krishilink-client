@@ -23,6 +23,10 @@ const CropCard = ({ crop }) => {
           Price: {crop.pricePerUnit} BDT / {crop.unit.toUpperCase()}
         </p>
 
+        <p className="text-lg text-base-content/60 line-clamp-1">
+          {crop.description}
+        </p>
+
         <div className="flex items-center gap-1 text-sm text-base-content/80">
           <FaMapMarkerAlt className="text-primary text-base" />
           <span>{crop.location}</span>

@@ -13,12 +13,12 @@ export const getCropById = async (id) => {
 
 export const getCropsByEmail = async (email) => {
   const res = await axios.get(`/crops?email=${email}`);
-  return res.data;
+  return res.data.crops;
 };
 
 export const getCrops = async (limit) => {
   const res = await axios.get(`/crops?limit=${limit ? limit : ""}`);
-  return res.data;
+  return res.data.crops;
 };
 
 export const getRandomCrops = async (count = 1) => {
