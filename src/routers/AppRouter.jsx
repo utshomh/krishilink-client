@@ -21,7 +21,11 @@ const LoginPage = lazy(() => import("../pages/LoginPage"));
 const RegisterPage = lazy(() => import("../pages/RegisterPage"));
 const ProfilePage = lazy(() => import("../pages/ProfilePage"));
 const UpdateProfilePage = lazy(() => import("../pages/UpdateProfilePage"));
-// const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
+const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
+
+const TermsAndConditionsPage = lazy(() =>
+  import("../pages/TermsAndConditionsPage")
+);
 
 const router = createBrowserRouter([
   {
@@ -88,7 +92,8 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      // { path: "reset-password", element: <ResetPasswordPage /> },
+      { path: "reset-password", element: <ResetPasswordPage /> },
+      { path: "/terms-and-conditions", element: <TermsAndConditionsPage /> },
     ],
   },
 ]);

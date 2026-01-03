@@ -24,7 +24,7 @@ const CropCard = ({ crop }) => {
         </p>
 
         <div className="flex items-center gap-1 text-sm text-base-content/80">
-          <FaMapMarkerAlt className="text-error text-base" />
+          <FaMapMarkerAlt className="text-primary text-base" />
           <span>{crop.location}</span>
         </div>
 

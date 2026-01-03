@@ -23,7 +23,7 @@ const blogPosts = [
 
 const AgroNews = () => {
   return (
-    <section className="px-6 md:px-8 lg:px-16 py-12 bg-accent text-accent-content rounded-xl">
+    <section className="px-6 md:px-8 lg:px-16 py-12 bg-primary text-primary-content rounded-xl">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
         Agro News & Blog
       </h2>
